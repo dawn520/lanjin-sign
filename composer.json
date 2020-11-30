@@ -1,0 +1,22 @@
+{
+    "name": "lanjin/lanjin-sign",
+    "type": "project",
+    "authors": [
+        {
+            "name": "xixi",
+            "email": "admin@zhouchenxi.cn"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0",
+        "noahbuscher/macaw": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files":[
+        ]
+    }
+}
