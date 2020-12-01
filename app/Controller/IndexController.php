@@ -33,17 +33,14 @@ class IndexController
         $data      = file_get_contents("php://input");
         $data      = json_decode($data, true);
         $tradeInfo = $data['trade_info'];
-        $tradeSha  = $data['trade_sha'];
-        var_dump($tradeInfo);
-        $tradeArr   = $aes->decrypt($tradeInfo);
-        $tradeInfo1 = $aes->encrypt($tradeArr);
-        $str        = 'HashKey=' . $merKey . '&' . $tradeInfo1 . '&HashIV=' . $merIv;
-        $str        = strtoupper(hash("sha256", $str));
-        if ($str === $tradeSha) {
-            echo json_encode(['code' => 200, 'msg' => 'success', 'data' => ['trade_info' => $tradeArr]]);
-        } else {
-            echo json_encode(['code' => -1, 'msg' => 'failed']);
-        }
+//        $tradeSha  = $data['trade_sha'];
+        $tradeArrS   = $aes->decrypt($tradeInfo);
+        $tradeArr = json_decode($tradeArrS,true);
+//        $tradeInfo1 = $aes->encrypt(json_encode($tradeArr));
+//        $str        = 'HashKey=' . $merKey . '&' . $tradeInfo . '&HashIV=' . $merIv;
+//        $str        = strtoupper(hash("sha256", $str));
+        header("Content-type:application/json");
+        echo json_encode(['code' => 200, 'msg' => 'success', 'data' => ['trade_info' => $tradeArr]]);
         return;
     }
 

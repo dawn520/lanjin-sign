@@ -1,6 +1,6 @@
 # 使用方法
 1.安装php7.0以上版本，及其OpenSSL扩展，及php-fpm，及composer
-2.安装nginx1.14及以上版本，并配置配置如下
+2.安装nginx1.14及以上版本，并修改配置如下
 ```nginx
      root /var/www/sign/;
      index index.php index.html index.htm;
